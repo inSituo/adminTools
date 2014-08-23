@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Live Log Viewer</title>
+    <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+</head>
+
+<body ng-app="LiveLogViewer">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12-sm" ng-controller="entriesCtrl">
+                <h1>Live Log Viewer</h1>
+                <label>Entries Buffer:
+                    <input type="text" ng-model="maxEntries" />
+                </label>
+                <button ng-click="updateMaxEntries()">Update</button>
+                <br/>
+                <label class="lvl-chk" ng-repeat="lvl in levels">
+                    <input type="checkbox" ng-model="lvl.show" />{{lvl.level}}
+                </label>
+                <table>
+                    <tr>
+                        <th>Date / Time</th>
+                        <th>Level</th>
+                        <th>Function</th>
+                        <th>Message</th>
+                        <th>Params</th>
+                    </tr>
+                    <tr ng-repeat="entry in entries | filter:lvlflt" class="{{entry.level}}">
+                        <td>{{entry.time}}</td>
+                        <td>{{entry.level}}</td>
+                        <td>{{entry.func}}</td>
+                        <td>{{entry.msg}}</td>
+                        <td>
+                            <ol>
+                                <li ng-repeat="param in entry.params">{{param}}</li>
+                            </ol>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/bower_components/angular/angular.min.js"></script>
+    <script src="/scripts/index.js"></script>
+</body>
+
+</html>

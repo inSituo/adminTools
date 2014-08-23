@@ -1,0 +1,45 @@
+.lvl-chk{
+    margin-right: 15px;
+}
+
+.lvl-chk input{
+    margin-right: 5px;
+}
+
+table{
+    width: 100%
+}
+
+table tr td {
+    border-left: 1px dashed gray;
+    border-bottom: 1px dashed gray;
+    padding: 3px;
+}
+
+table tr td:first-child{
+    border-left: none;
+}
+
+table tr.DBG{
+    background-color: #e6e6e6;
+}
+
+table tr.INF{
+    background-color: #ccdfff;
+}
+
+table tr.CAL{
+    background-color: #ccffd1;
+}
+
+table tr.ACT{
+    background-color: #f6ffcc;
+}
+
+table tr.WRN{
+    background-color: #fcc;
+}
+
+table tr.ERR{
+    background-color: #ff8080;
+}
