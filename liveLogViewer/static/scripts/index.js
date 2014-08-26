@@ -9,7 +9,7 @@ app.controller('entriesCtrl', function($scope) {
     $scope.maxEntries = 25;
     $scope.levels = [{
         level: "DBG",
-        show: true,
+        show: false,
     }, {
         level: "INF",
         show: true,
